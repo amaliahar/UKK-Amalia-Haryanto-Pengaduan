@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TanggapanController;
+use App\Http\Controllers\LaporanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +38,20 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route::resource('pengaduan', PengaduanController::class)->middleware('auth');
 Route::resource('pengaduan', PengaduanController::class)->middleware('auth');
 
+Route::get('home', function (){
+    return view('home');
+});
+
+Route::get('laporan', function (){
+    return view('laporan');
+});
+// Route::resource('/laporan', LaporanController::class);
+
+// Route::get('register', function (){
+//     return view('user.register');
+// });
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::resource('tanggapan', TanggapanController::class);

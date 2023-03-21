@@ -38,7 +38,7 @@
 <body>
 
 <!-- sweetalert harus di taro di master layout-->
-{{-- @include('sweetalert::alert') --}}
+@include('sweetalert::alert')
 
 
     <div class="container-scroller">

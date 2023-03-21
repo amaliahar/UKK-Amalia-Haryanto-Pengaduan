@@ -54,10 +54,10 @@
                             <td>
                             @switch($p->status)
                                 @case("Selesai")
-                                <span class="badge bg-success">{{ $p->status }}</span>
+                                    <span class="badge bg-success">{{ $p->status }}</span>
                                 @break
                                 @case("Proses")
-                                <span class="badge bg-warning ">{{ $p->status }}</span>
+                                    <span class="badge bg-warning ">{{ $p->status }}</span>
                                 @break
                             @default
                             @endswitch

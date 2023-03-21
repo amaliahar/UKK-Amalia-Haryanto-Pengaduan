@@ -26,12 +26,11 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach ($user as $s)
                         <th>
-                            <td>{{ $s->no }}</td>
-                            <td>{{ $s->username}}</td>
-                            <td>{{ $s->email }}</td>
-                            <td>{{ $s->telp }}</td>
+                            <td>{{ $user->no }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->telp }}</td>
                         </th>
                     </tbody>
                 </table>
@@ -60,6 +59,6 @@
     </div>
 </div>
 
-{!! $user->links() !!}
+{{-- {!! $user->links() !!} --}}
 
 @endsection

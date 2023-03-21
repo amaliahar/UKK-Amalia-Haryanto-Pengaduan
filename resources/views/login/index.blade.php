@@ -5,7 +5,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> Halaman Login </title>
+<title> Silakan Masuk </title>
 <!-- plugins:css -->
 <link rel="stylesheet" href="../../asset/admin/template/vendors/feather/feather.css">
 <link rel="stylesheet" href="../../asset/admin/template/vendors/mdi/css/materialdesignicons.min.css">
@@ -33,7 +33,7 @@
 <img src="../../asset/admin/template/images/logo.svg" alt="logo">
 </div> --}}
 <h4>Laporan Pengaduan Masyarakat</h4>
-<h6 class="fw-light">Silahkan Anda login terlebih dahulu.</h6>
+<h6 class="fw-light">Silahkan Anda Isi terlebih dahulu.</h6>
 
 @if ($message = Session::get('seccess'))
 <div class="alert alert-success mt-2">
@@ -55,7 +55,7 @@
 <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Password">
 </div>
 <div class="mt-3">
-<button type="submit" class="btn btn-primary btn-rounded btn-fw">{{ __('Login')}}</button>
+<button type="submit" class="btn btn-primary btn-rounded btn-fw">{{ __('Masuk')}}</button>
 </div>
 <!-- <div class="my-2 d-flex justify-content-between align-items-center">
 <div class="form-check">

@@ -24,18 +24,21 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin098'),
+            'role' => 'admin',
         ]);
 
        \App\Models\User::create([
             'username' => 'masyarakat',
             'email' => 'masyarakat@gmail.com',
             'password' => bcrypt('masyarakat098'),
+            'role' => 'masyarakat',
        ]);
 
        \App\Models\User::create([
             'username' => 'petugas',
             'email' => 'petugas@gmail.com',
             'password' => bcrypt('petugas098'),
+            'role' => 'petugas',
        ]);
     }
 }

@@ -80,41 +80,42 @@ CKEDITOR.replace('isi');
 </div>
 
 <div class="col-xs-12 col-sm-12 col-md-12">
-<div class="form-group">
-<div class="col-md-5">
-<div class="form-group row">
-<strong>Status</strong>
-<div class="col-sm-4">
-<div class="form-check">
-<label class="form-check-label">
-<input type="radio" class="form-check-input @error('status') is invalid @enderror" name="status" id="proses" value="proses" {{ ($pengaduan->status = 'proses') ? 'checked' : '' }}>
-Proses
-</label>
-@error('status')
-<div class="invalid-feedback">
-{{ $message }}
+    <div class="form-group">
+        <div class="col-md-5">
+            <div class="form-group row">
+                <strong>Status</strong>
+                <div class="col-sm-4">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input @error('status') is invalid @enderror" name="status" id="proses" value="proses" {{ ($pengaduan->status = 'proses') ? 'checked' : '' }}>
+                        Proses
+                        </label>
+                        @error('status')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-5">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input @error('status') is invalid @enderror" name="status" id="selesai" value="selesai" {{ ($pengaduan->status = 'selesai') ? 'checked' : '' }}>
+                        Selesai
+                        </label>
+                        @error('status')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-@enderror
-</div>
-</div>
-<br>
-<div class="col-sm-5">
-<div class="form-check">
-<label class="form-check-label">
-<input type="radio" class="form-check-input @error('status') is invalid @enderror" name="status" id="selesai" value="selesai" {{ ($pengaduan->status = 'selesai') ? 'checked' : '' }}>
-Selesai
-</label>
-@error('status')
-<div class="invalid-feedback">
-{{ $message }}
-</div>
-@enderror
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <div class="col-xs-12 col-sm-12 col-md-3 text-left">
 <button type="submit" class="btn btn-primary btn-rounded btn-fw">Submit</button>
 <button type="button" class="btn btn-light btn-rounded btn-fw" value="Go Back" onclick="history.back(-1)">Back</button>
@@ -125,7 +126,7 @@ Selesai
 </div>
 </div>
 <!-- Button Tanggapan -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" href="tanggapan.edit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 Tanggapan
 </button>
 <!-- Modal -->
@@ -143,20 +144,45 @@ Tanggapan
 <textarea class="form-control" id="exampleTextarea1" cols="30" rows="30" style="height:100px"></textarea>
 </div>
 <br>
-<strong>Status</strong>
-<div class="dropdown text-align-center">
-<a class="btn btn-info btn-rounded btn-fw dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-Belum Proses
-</a>
-<ul class="dropdown-menu">
-<li><a class="dropdown-item" href="#">Belum Proses</a></li>
-<li><a class="dropdown-item" href="#">Sedang Proses</a></li>
-<li><a class="dropdown-item" href="#">Proses Selesai</a></li>
-</ul>
+<div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="form-group">
+        <div class="col-md-5">
+            <div class="form-group row">
+                <strong>Status</strong>
+                <div class="col-sm-4">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input @error('status') is invalid @enderror" name="status" id="proses" value="proses" {{ ($pengaduan->status = 'proses') ? 'checked' : '' }}>
+                        Proses
+                        </label>
+                        @error('status')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-5">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input @error('status') is invalid @enderror" name="status" id="selesai" value="selesai" {{ ($pengaduan->status = 'selesai') ? 'checked' : '' }}>
+                        Selesai
+                        </label>
+                        @error('status')
+                        <div class="invalid-feedback">
+                        {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 <div class="modal-footer">
-<button type="button" class="btn btn-primary btn-rounded btn-fw">Save</button>
+<a type="submit" class="btn btn-primary btn-rounded btn-fw">Save</a>
 <button type="button" class="btn btn-secondary btn-rounded btn-fw" data-bs-dismiss="modal">Close</button>
 </div>
 </div>

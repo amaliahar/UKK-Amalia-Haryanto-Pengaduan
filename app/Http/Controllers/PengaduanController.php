@@ -66,8 +66,8 @@ return redirect()->route('pengaduan.index')
 */
 public function show($id)
 {
-$detail = Pengaduan::find($id);
-return view('pengaduan.detail', compact('detail'));
+$pengaduan = Pengaduan::find($id);
+return view('pengaduan.index', compact('pengaduan'));
 }
 
 /**

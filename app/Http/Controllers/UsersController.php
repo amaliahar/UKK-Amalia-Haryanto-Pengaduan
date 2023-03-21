@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UsersController extends Controller
 {
     public function index(){
-        $user = user::latest();
-        return view('user.index', compact('user'))
-            ->with('i', (request()->input('page', 1) -1) * 500);
+        $data = array(
+            'id' => "users",
+            'user' => User::all(),
+        );
+        return view('user.index')->with($data);
     }
+
+    public function show($id){
+        $users = Users::find($id);
+        return User::find($id);
+    }
+
+
 }
 
 
