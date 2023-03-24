@@ -38,7 +38,7 @@
               <ul class="cs-nav_list">
                 <li><a href="#home" class="cs-smoth_scroll">Beranda</a></li>
                 <li><a href="#about" class="cs-smoth_scroll">Tentang Kami</a></li>
-                {{-- <li><a href="#feature" class="cs-smoth_scroll">Feature</a></li>
+                {{-- <li><a href="#feature" class="cs-s`moth_scroll">Feature</a></li>
                 <li><a href="#pricing" class="cs-smoth_scroll">Pricing</a></li> --}}
                 <li><a href="#news" class="cs-smoth_scroll">Berita</a></li>
                 {{-- <li><a href="#contact" class="cs-smoth_scroll">Contact</a></li> --}}
@@ -47,8 +47,8 @@
           </div>
           <div class="cs-main_header_right">
             <div class="cs-toolbox">
-              <span class="cs-link cs-modal_btn" data-modal="login">Masuk</span>
-              <button class="cs-btn cs-color1 cs-modal_btn" data-modal="register"><span>Daftar</span></button>
+              <a href="{{ url('login')}}"><span class="cs-link cs-modal_btn" >Masuk</span></a>
+              <a class="cs-btn cs-color1 cs-modal_btn" href="{{ url('register')}}"><span>Daftar</span></a>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@
           </div>
           <h1 class="cs-hero_title">Pengaduan <br> Masyarakat</h1>
           <div class="cs-hero_subtitle">Kecamatan Ciawi<br> </div>
-          <a href="#" class="cs-btn"><span>Silakan Daftar</span></a>
+          <a href="{{url('user')}}" class="cs-btn"><span>Silakan Daftar</span></a>
         </div>
         <div class="cs-hero_shapes">
           <div class="cs-shape cs-shape_position1">

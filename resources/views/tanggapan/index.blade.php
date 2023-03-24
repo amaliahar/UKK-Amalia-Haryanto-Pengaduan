@@ -5,12 +5,12 @@
 <div class="container-fluid px-6">
     <div class="card mb-4">
         <div class="card-header">
-            <h2 class="mt-1">Data Pengaduan</h2>
+            <h2 class="mt-1">Data tanggapan</h2>
         </div>
         <div class="card-body">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Pengaduan</button>
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Tanggapan</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Tambah Data</button>
@@ -21,9 +21,9 @@
                     <table id="MyTables" class="table table-stripped">
                         <thead style="text-align: center">
                             <tr>
-                                <th style="width: 90px;">Tanggal Pengaduan</th>
+                                <th style="width: 90px;">Tanggal Tanggapan</th>
                                 <th style="width: 100px;">NIK</th>
-                                <th style="width: 300px;">Isi Pengaduan</th>
+                                <th style="width: 300px;">Isi Tanggapan</th>
                                 <th style="width: 200px;">Image</th>
                                 <th style="width: 100px;">Status</th>
                                 <th style="width: 100px;">Action</th>
@@ -31,16 +31,16 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Tanggal Pengaduan</th>
+                                <th>Tanggal tanggapan</th>
                                 <th>NIK</th>
-                                <th>Isi Pengaduan</th>
+                                <th>Isi tanggapan</th>
                                 <th>Image</th>
                                 <th>Status</th>
                                 <th style="width: 100px;">Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($pengaduan as $p)
+                            @foreach ($tanggapan as $p)
                             <tr>
                                 {{-- <td>{{ date('D,
                                     d M Y',$p->created_at->timestamp) }}</td> --}}
@@ -64,8 +64,8 @@
                             @endswitch
                             </td>
                             <td>
-                                <form action="{{ route('pengaduan.destroy',$p->id) }}" method="POST">
-                                    <a class="btn btn-primary btn-rounded" href="{{ route('pengaduan.edit',$p->id) }}"><i class="ti-pencil"></i></a>
+                                <form action="{{ route('tanggapan.destroy',$p->id) }}" method="POST">
+                                    <a class="btn btn-primary btn-rounded" href="{{ route('tanggapan.edit',$p->id) }}"><i class="ti-pencil"></i></a>
                                     @csrf
                                     @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-rounded" onclick="return confirm('Delete?')">
@@ -95,12 +95,12 @@
                                 </ul>
                             </div>
                             @endif
-                            <form action="{{ route('pengaduan.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('tanggapan.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body" id="modalContent">
                             {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                            <strong>Tanggal Pengaduan</strong>
+                            <strong>Tanggal tanggapan</strong>
                             <input type="text" name="date" class="form-control" @error('date') is-invalid @enderror placeholder="Tanggal" " value="{{ old('date') }}">
                             @error('date')
                             <div class="invalid-feedback">
@@ -194,5 +194,5 @@
     </div>
 </div>
 
-{!! $pengaduan->links() !!}
+{!! $tanggapan->links() !!}
 @endsection

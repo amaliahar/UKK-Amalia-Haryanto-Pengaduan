@@ -23,6 +23,9 @@
 </head>
 
 <body>
+        <!-- sweetalert harus di taro di master layout-->
+@include('sweetalert::alert')
+
 <div class="container-scroller">
 <div class="container-fluid page-body-wrapper full-page-wrapper">
 <div class="content-wrapper d-flex align-items-center auth px-0" style="background-color:#98b6ef;">
