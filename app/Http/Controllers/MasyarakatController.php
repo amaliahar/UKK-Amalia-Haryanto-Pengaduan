@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Masyarakat;
+use Auth;
 
 class MasyarakatController extends Controller
 {
     public function index()
     {
-        $dt_masyarakat = Masyarakat::all();
-        return view('user.index', compact('dt_masyarakat'));
+        // $dt_masyarakat = Masyarakat::all();
+        // return view('user.index', compact('dt_masyarakat'));
+
+        if(Auth::guard('petugas')->check()) {
+            return abort(404);
+        }
+        elseif(Auth::guard('masyarakat')->check()) {
+            return redirect()->intended('/user.index');
+        }
+        else{
+            return view('login.index');
+        }
     }
 
     public function create()
@@ -50,5 +61,20 @@ class MasyarakatController extends Controller
         $dt_masyarakat = Masyarakat::find($id);
         $dt_masyarakat->delete();
         return redirect('/masyarakat');
+    }
+
+    public function authentication(Request $request) {
+        $credentials = $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        if (Auth::guard('masyarakat')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('user.index')->with('success', 'Anda Berhasil Login! Silahkan Isi Pengaduan Anda.');
+        }
+
+        return back()->with('loginError', 'Login Failed');
     }
 }

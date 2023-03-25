@@ -119,7 +119,7 @@
     <div class="main-panel content-wrapper">
         <div class="container-fluid">
             <div class="cs-height_10_ cs-height_lg_100"></div>
-            <div class="cs-funfact_1_wrap cs-type1">
+            <div class="cs-funfact_1_wrap cs-type1" style="background-color: rgb(250, 237, 255);">
                 <div class="row flex-row-reverse col-lg-11">
                     <div class="container section-wrapper">
 
@@ -133,7 +133,7 @@
                                     @csrf
                                     <div class="modal-body" id="modalContent">
 
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <strong>NIK</strong>
                                                     <input type="text" name="nik" class="form-control" @error('nik') is-invalid @enderror placeholder="nik" value="{{ old('nik')}}">
@@ -143,7 +143,7 @@
                                                     </div>
                                                     @enderror
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
                                             <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                                                 <div class="form-group">
@@ -170,7 +170,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <div class="col-md-5">
                                                         <div class="form-group row">
@@ -204,7 +204,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
                                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                                 <button type="submit" class="btn btn-primary text-align center">Submit</button>

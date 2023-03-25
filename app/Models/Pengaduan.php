@@ -10,7 +10,6 @@ class Pengaduan extends Model
     use HasFactory;
     Protected $table = 'pengaduan';
     Protected $guarded = [];
-    Protected $primarykey = 'pengaduan';
 
     public function getCreatedAtAttributes()
     {

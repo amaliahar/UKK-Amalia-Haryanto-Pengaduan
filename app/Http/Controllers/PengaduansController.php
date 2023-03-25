@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengaduans;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Auth;
 
 use Barryvdh\DomPDF\Facades as PDF;
 
@@ -15,12 +16,16 @@ class PengaduansController extends Controller
 *
 * @return \Illuminate\Http\Response
 */
-public function index()
+public function index(Request $request)
 {
-$pengaduans = pengaduans::latest()->paginate(500);
+    // $pengaduans = Pengaduans::where('nik', Auth::guard('masyarakat')->user()->nik)->paginate(5);
 
-return view('pengaduans.index', compact('pengaduans'))
-->with('i', (request()->input('page', 1) - 1) * 500);
+    $pengaduansss = Pengaduans::when($request->search, function ($query) use ($request) {
+        $query->where('isi', 'like', "%{$request->search}%");
+    });
+    // ->where('nik', Auth::guard('masyarakat')->user()->nik)->orderBy('created_at', 'desc')->paginate(5);
+
+    return view('pengaduans.index', compact('pengaduansss'));
 }
 
 /**
@@ -46,6 +51,7 @@ $validated = $request->validate([
 'isi' => 'required',
 ]);
 
+
 $image = $request->file('image')->store('post-images/pengaduans');
 
 $validated['image'] = $image;
@@ -53,7 +59,25 @@ $validated['image'] = $image;
 Pengaduans::create($validated);
 
 return redirect()->route('pengaduans.index')
-->with('success', 'Add Success!');
+->with('success', 'Data Berhasil Disimpan!');
+
+
+// $validated = $request->validate([
+//     'nama_petugas' =>'required',
+//     'username' => 'required',
+//     'password' => 'required',
+//     'telp' => 'required',
+// ]);
+
+// Petugas::create([
+//     'nama_petugas' => $request->nama_petugas,
+//     'username' => $request->username,
+//     'password' => Hash::make($request->password),
+//     'telp' => $request->telp,
+// ]);
+
+// return redirect()->route('usermanagement.index')->with('toast_success', 'Data Berhasil Disimpan!');
+
 }
 
 /**
@@ -64,8 +88,9 @@ return redirect()->route('pengaduans.index')
 */
 public function show($id)
 {
-$pengaduans = Pengaduans::find($id);
-return view('pengaduans.index', compact('pengaduans'));
+    $pengaduansss = Pengaduans::findorFail($id);
+    $nama = Masyarakat::where('nik', Auth::guard('masyarakat')->user()->nik)->first();
+    return view('pengaduansss.show', compact('pengaduansss', 'nama'));
 }
 
 /**
@@ -74,9 +99,9 @@ return view('pengaduans.index', compact('pengaduans'));
 * @param \App\Models\Pengaduans $pengaduans
 * @return \Illuminate\Http\Response
 */
-public function edit(Pengaduans $pengaduans)
+public function edit(Pengaduans $pengaduansss)
 {
-return view('pengaduans.edit', compact('pengaduans'));
+return view('pengaduans.edit', compact('pengaduansss'));
 }
 
 /**
@@ -102,7 +127,7 @@ Storage::delete($request->oldImage);
 $validated['image'] = $request->file('image')->store('post-images/pengaduans');
 };
 
-$pengaduans->update($validated);
+$pengaduansss->update($validated);
 
 return redirect()->route('pengaduans.index')
 ->with('success', 'Update Success!');

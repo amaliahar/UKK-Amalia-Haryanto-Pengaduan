@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\User;
+use App\Models\Pengaduans;
 
 class HomeController extends Controller
 {
     public function index(){
-        $pengaduan = Pengaduan::all()->count();
-        return view('pengaduan.index', compact('pengaduan'));
+        $pengaduans = Pengaduan::all()->count();
+        $pengaduans = Pengaduan::count();
+        $pengaduan = Pengaduan::all();
+        return view('pengaduans.index', compact('pengaduans', 'pengaduansss'));
 
-        $pengaduan = Pengaduan::count();
+        $pengaduans = Pengaduan::count();
         $proses = Pengaduan::where('status', 'proses')->count();
         $selesai = Pengaduan::where('status', 'selesai')->count();
 

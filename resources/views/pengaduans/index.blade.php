@@ -2,6 +2,10 @@
 
 @section('content')
 
+<?php
+use App\Models\Tanggapan;
+?>
+
 <div class="container-fluid px-6">
     <div class="card mb-4">
         <div class="card-header">
@@ -22,25 +26,21 @@
                         <thead style="text-align: center">
                             <tr>
                                 <th style="width: 90px;">Tanggal Pengaduans</th>
-                                <th style="width: 100px;">NIK</th>
                                 <th style="width: 300px;">Isi Pengaduans</th>
                                 <th style="width: 200px;">Image</th>
-                                <th style="width: 100px;">Status</th>
                                 <th style="width: 100px;">Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Tanggal Pengaduans</th>
-                                <th>NIK</th>
                                 <th>Isi Pengaduans</th>
                                 <th>Image</th>
-                                <th>Status</th>
                                 <th style="width: 100px;">Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($pengaduans as $p)
+                            @foreach ($pengaduansss as $p)
                             <tr>
                                 {{-- <td>{{ date('D,
                                     d M Y',$p->created_at->timestamp) }}</td> --}}
@@ -87,15 +87,15 @@
                         @csrf
                         <div class="modal-body" id="modalContent">
                             {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                            <strong>Tanggal Pengaduans</strong>
-                            <input type="text" name="date" class="form-control" @error('date') is-invalid @enderror placeholder="Tanggal" " value="{{ old('date') }}">
-                            @error('date')
-                            <div class="invalid-feedback">
-                            {{ $message }}
-                            </div>
-                            @enderror
-                            </div>
+                                <div class="form-group">
+                                <strong>Tanggal Pengaduans</strong>
+                                <input type="text" name="date" class="form-control" @error('date') is-invalid @enderror placeholder="Tanggal" " value="{{ old('date') }}">
+                                @error('date')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                                @enderror
+                                </div>
                             </div> --}}
 
                                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
@@ -134,5 +134,5 @@
     </div>
 </div>
 
-{!! $pengaduanss->links() !!}
+{{-- {!! $pengaduans->links() !!} --}}
 @endsection

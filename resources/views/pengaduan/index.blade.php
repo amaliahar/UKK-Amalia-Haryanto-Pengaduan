@@ -25,7 +25,7 @@
                                 <th style="width: 100px;">NIK</th>
                                 <th style="width: 300px;">Isi Pengaduan</th>
                                 <th style="width: 200px;">Image</th>
-                                <th style="width: 100px;">Status</th>
+                                {{-- <th style="width: 100px;">Status</th> --}}
                                 <th style="width: 100px;">Action</th>
                             </tr>
                         </thead>
@@ -35,7 +35,7 @@
                                 <th>NIK</th>
                                 <th>Isi Pengaduan</th>
                                 <th>Image</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
                                 <th style="width: 100px;">Action</th>
                             </tr>
                         </tfoot>
@@ -52,7 +52,7 @@
                                 <img src="{{ asset('storage/' . $p->image) }}" alt="No Image" class="img-fluid mt-3">
                             </div>
                             </td>
-                            <td>
+                            {{-- <td>
                             @switch($p->status)
                                 @case("Selesai")
                                     <span class="badge bg-success">{{ $p->status }}</span>
@@ -62,7 +62,7 @@
                                 @break
                             @default
                             @endswitch
-                            </td>
+                            </td> --}}
                             <td>
                                 <form action="{{ route('pengaduan.destroy',$p->id) }}" method="POST">
                                     <a class="btn btn-primary btn-rounded" href="{{ route('pengaduan.edit',$p->id) }}"><i class="ti-pencil"></i></a>

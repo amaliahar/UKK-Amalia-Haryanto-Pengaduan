@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\User;
 use PDF;
+use DB;
 
 class LaporanController extends Controller
 {
@@ -64,5 +65,16 @@ class LaporanController extends Controller
         $pdf = PDF::loadview('laporan', compact('laporan'));
         $pdf->setPaper('A4', 'potrait');
         return $pdf->download('laporan-pdf.pdf');
+    }
+
+    public function pdfview(Request $request)
+    {
+        $item = DB::table("items")->get();
+        view()->share('items',$items);
+        if($request->has('download')){
+            $pdf = PDF::loadView('laporan');
+            return $pdf->download('pdfview.pdf');
+        }
+        return view('laporan');
     }
 }

@@ -49,8 +49,8 @@
             </div> --}}
             <div class="container">
                 <table class="table">
-                    {{-- <tbody>
-                        @foreach ($pengaduan as $p)
+                    <tbody>
+                        {{-- @foreach ($pengaduan as $p)
                             <tr>
                                 <td>{{ $p += 1 }}</td>
                                 <td>{{ $p->tgl_pengaduan->format('d-M-Y') }}</td>
@@ -60,6 +60,21 @@
                         @endforeach --}}
                     </tbody>
                 </table>
+                {{-- <a href="{{ route('laporan',['download'=>'pdf']) }}">Download PDF</a>
+                    <table>
+                        <tr>
+                        <th>No</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        </tr>
+                        @foreach ($items as $key => $item)
+                        <tr>
+                        <td>{{ ++$key }}</td>
+                        <td>{{ $item->title }}</td>
+                        <td>{{ $item->description }}</td>
+                        </tr>
+                        @endforeach
+                    </table> --}}
             </div>
         </table>
     </div>

@@ -12,6 +12,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\PengaduansController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,10 @@ use App\Http\Controllers\PengaduansController;
 Route::get('/', function () {
     return view('dashboard');
 });
+
+
+Route::get('pengaduan-proses', [DashboardController::class, 'showProses'])->name('proses');
+Route::get('pengaduan-selesai', [DashboardController::class, 'showSelesai'])->name('selesai');
 
 
 
@@ -51,6 +56,9 @@ Route::get('home', function (){
 Route::get('laporan', function (){
     return view('laporan');
 });
+
+// Route::get('laporan',array('as'=>'laporan','uses'=>'LaporanController@store'));
+
 // Route::resource('/laporan', LaporanController::class);
 
 // Route::get('register', function (){
@@ -88,3 +96,4 @@ Route::get('export', function (){
 // Route::delete('/tanggapan/edit/{$id_tanggapan}', [TanggapanController::class, 'delete'])->name('tanggapan.delete');
 
 Route::get('pengaduans', [PengaduansController::class, 'index'])->name('pengaduans.index');
+Route::post('pengaduans', [PengaduansController::class, 'store'])->name('pengaduans.store');

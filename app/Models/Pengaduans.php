@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pengaduans extends Model
 {
     use HasFactory;
+    protected $table = 'pengaduans';
+    protected $primaryKey = 'id_pengaduans';
+    protected $guarded = [];
 }

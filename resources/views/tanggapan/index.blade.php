@@ -22,7 +22,6 @@
                         <thead style="text-align: center">
                             <tr>
                                 <th style="width: 90px;">Tanggal Tanggapan</th>
-                                <th style="width: 100px;">NIK</th>
                                 <th style="width: 300px;">Isi Tanggapan</th>
                                 <th style="width: 200px;">Image</th>
                                 <th style="width: 100px;">Status</th>
@@ -32,7 +31,6 @@
                         <tfoot>
                             <tr>
                                 <th>Tanggal tanggapan</th>
-                                <th>NIK</th>
                                 <th>Isi tanggapan</th>
                                 <th>Image</th>
                                 <th>Status</th>

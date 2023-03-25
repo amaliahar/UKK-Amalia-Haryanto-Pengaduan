@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\dashboard;
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
+use App\Models\Petugas;
+use App\Models\Masyarakat;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -13,8 +16,15 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $proses = Pengaduan::where('status', 'proses')->get()->count();
+        $selesai = Pengaduan::where('status', 'selesai')->get()->count();
+        $pengaduan = Pengaduan::all()->count();
 
+        return view('dashboard', [
+            'proses' => $proses,
+            'selesai' => $selesai,
+            'pengaduan' => $pengaduan, compact('proses', 'selesai', 'pengaduan')
+        ]);
     }
 
     /**
@@ -64,4 +74,17 @@ class DashboardController extends Controller
     {
         //
     }
+
+    public function showProses()
+    {
+        $pengaduan = Pengaduan::where('status', 'proses')->get();
+        return view('Pengaduan.index', ['pengaduan'=> $pengaduan]);
+    }
+
+    public function showSelesai()
+    {
+        $pengaduan = Pengaduan::where('status', 'selesai')->get();
+        return view('Pengaduan.index', ['pengaduan'=> $pengaduan]);
+    }
+
 }
